@@ -24,9 +24,13 @@ References:
 var fs = require('fs');
 var program = require('commander');
 var cheerio = require('cheerio');
-var HTMLFILE_DEFAULT = "index.html";
+var HTMLFILE_DEFAULT = "http://nameless-sands-3814.herokuapp.com";
+var URL_DEFAULT = "http://nameless-sands-3814.herokuapp.com";
 var CHECKSFILE_DEFAULT = "checks.json";
-
+var sys = require('util');
+var rest = require('../node_modules/restler');
+var sleep = require('../node_modules/sleep');
+var res = ""    
 var assertFileExists = function(infile) {
     var instr = infile.toString();
     if(!fs.existsSync(instr)) {
@@ -37,7 +41,15 @@ var assertFileExists = function(infile) {
 };
 
 var cheerioHtmlFile = function(htmlfile) {
-    return cheerio.load(fs.readFileSync(htmlfile));
+    //return cheerio.load(fs.readFileSync(htmlfile));
+    //sys.puts(res);
+    return cheerio.load(res);
+
+};
+var loadHtmlUrl = function(weburl, callback) {
+    var resultstr = rest.get(weburl).on('complete', function(result) {
+      callback(result);
+    });
 };
 
 var loadChecks = function(checksfile) {
@@ -64,11 +76,16 @@ var clone = function(fn) {
 if(require.main == module) {
     program
         .option('-c, --checks <check_file>', 'Path to checks.json', clone(assertFileExists), CHECKSFILE_DEFAULT)
-        .option('-f, --file <html_file>', 'Path to index.html', clone(assertFileExists), HTMLFILE_DEFAULT)
+        .option('-f, --file <html_file>', 'Path to index.html', null, HTMLFILE_DEFAULT)
+        .option('-u, --url <html_file>', 'URL to check', null, URL_DEFAULT)
         .parse(process.argv);
-    var checkJson = checkHtmlFile(program.file, program.checks);
-    var outJson = JSON.stringify(checkJson, null, 4);
-    console.log(outJson);
+    loadHtmlUrl(program.url, function(rawEncode){
+      res = rawEncode;
+      var checkJson = checkHtmlFile(program.url, program.checks);
+      var outJson = JSON.stringify(checkJson, null, 4);
+      console.log(outJson);
+
+    });    
 } else {
     exports.checkHtmlFile = checkHtmlFile;
-}
+} 
