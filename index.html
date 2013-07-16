@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fbootstrap-combined.no-icons.min.css">
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css">
     <link rel="stylesheet" href="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fsocial-buttons.css">
+    <link rel="stylesheet" href="https://raw.github.com/antijingoist/web-accessibility/master/CSS/accessibility.css">
     <script src="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fjquery.js"></script>
     <script src="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fbootstrap.js"></script>
     <link href="http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic" rel="stylesheet" type="text/css">
@@ -42,10 +43,10 @@
 
       /* Main body and headings */
       body {
-        font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+        font-family: 'opendyslexic';
       }
       .heading, .subheading {
-        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+        font-family: 'opendyslexic';
         text-align: center;
       }
       p.lead {
@@ -57,7 +58,9 @@
         font-size: 18px;
         line-height: 24px;
       }
-
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'opendyslexic';
+      }
       /* Video pitch and Action */
       .pitch {
         padding: 2.5% 0%;
@@ -95,6 +98,17 @@
       .footer a {
         color: #ccccff;
       }
+      img.flip {
+        -moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        filter: FlipH;
+        -ms-filter: "FlipH";
+      }
+      .panel {
+        background-color: #ededcf;
+      }
     </style>
   </head>
 <body>
@@ -109,7 +123,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="brand" href="#">Bitstarter</a>
+        <a class="brand"  href="#">Bitstarter</a>
         <div class="nav-collapse collapse">
           <ul class="nav">
             <li class="active"><a href="#">Home</a></li>
@@ -130,17 +144,19 @@
     <!-- www.google.com/fonts/specimen/Ubuntu#pairings-->
     <div class="row-fluid heading">
       <div class="span12">
-        <h1>Product</h1>
+        <h1>Dysleximo</h1>
       </div>
     </div>
     <div class="row-fluid subheading">
       <div class="span12">
-        <p class="lead">One sentence description.</p>
+        <p class="lead">Giving dyslexics a tool to study.</p>
       </div>
     </div>
+
+    <div class="panel">
     <div class="row-fluid pitch">
       <div class="span5 offset1 video">
-        <img class="img-polaroid" src="http://placehold.it/480x300">
+        <img class="img-polaroid" style="width: 480px; height:300px" src="http://s3.she.be/nl/imgpath/assets_img_she/2013/02/12/2507586/dyslexie-is-erfelijk_1000x667.JPG">
       </div>
 
       <!-- We define a new 'actions' div to contain statistics, order, and share buttons.  -->
@@ -195,16 +211,23 @@
     <!-- http://placehold.it -->
     <div class="row-fluid section1">
       <div class="span5 offset1 asset">
-        <img class="img-polaroid" src="http://placehold.it/480x300">
+        <img class="img-polaroid flip" style="width:480px; height: 300px" src="https://www.ocrn.nl/upload/afbeeldingen/8.jpg">
       </div>
       <div class="span5 copy">
-        <p>Lorem ipsum</p>
+        <p>One of the major problems in studying textbooks are fill-in-the-blank fields. 
+           Students have to fill-in the words themselves in handwriting. 
+           Errors are unevitable. Afterwards these textbooks are used to learn the matter, including the mistakes that were introduced.
+         </p>
       </div>
     </div>
 
     <div class="row-fluid section2">
       <div class="span5 offset1 copy copy-right">
-        <p>Lorem ipsum</p>
+        <p>Dysleximo is a platform where teachers can create content that is easily accessible for Dyslexics, using fill-in-the-blank fields.
+           Students can register different textbooks, fill in the blanks during the course. Doing this they get help to overcome dyslexia.
+           Afterwards they can use this textbook to study.
+           Students are able to grade textbooks and comment on how to improve the textbook.
+         </p>
       </div>
       <div class="span5 asset">
         <img class="img-polaroid" src="http://placehold.it/480x300">
@@ -222,12 +245,14 @@
             <div class="accordion-heading">
               <a class="accordion-toggle" data-toggle="collapse"
               data-parent="#accordion2" href="#collapseOne">
-              What does FAQ stand for?
+              What does dysleximo stand for?
               </a>
             </div>
             <div id="collapseOne" class="accordion-body collapse">
               <div class="accordion-inner">
-                Frequently Asked Question.
+                Dysleximo refers to 'dyslexia eximo'.</br>
+                Eximo (latin) meaning 'to free from'.</br> 
+                Our platform is meant to free students from the consequences of them being dyslexic.
               </div>
             </div>
           </div>
@@ -235,15 +260,29 @@
             <div class="accordion-heading">
               <a class="accordion-toggle" data-toggle="collapse"
               data-parent="#accordion2" href="#collapseTwo">
-              What's a Frequently Asked Question?
+              What's a dyslexic?
               </a>
             </div>
             <div id="collapseTwo" class="accordion-body collapse">
               <div class="accordion-inner">
-                A question which is commonly asked by users.
+                A dyslexic is a person who has dyslexia.
               </div>
             </div>
-          </div>          
+          </div>    
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle" data-toggle="collapse"
+              data-parent="#accordion2" href="#collapseThree">
+              What's a dyslexia?
+              </a>
+            </div>
+            <div id="collapseThree" class="accordion-body collapse">
+              <div class="accordion-inner">
+                Dyslexia is characterized by difficulty in learning to read fluently and with accurate comprehension despite normal intelligence.</br>
+                Read <a href="http://en.wikipedia.org/wiki/Dyslexia">more</a> on wikipedia.
+              </div>
+            </div>
+          </div>         
         </div>
       </div>
 
@@ -258,6 +297,9 @@
         </p>
       </div>
     </div>
+
+    
+  </div>
   </div>
 </body>
 </html>
